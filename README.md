@@ -18,7 +18,7 @@ Getting Started
 
 ### Setup API
 ```javascript
- var morse = require('./morse-node').create("ITU");
+ var morse = require('morse-node').create("ITU");
 ```
 
 ### Encoding
