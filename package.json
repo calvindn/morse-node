@@ -1,24 +1,22 @@
 {
     "name": "morse-node",
     "version": "0.0.1",
-    "license": "MIT",
-    "author": "Calvin Nichols",
-    "description": "Encode strings to morse code and vice versa",
-    "contributors": [
-        {
-            "name": "Calvin Nichols",
-            "email": "calvin@calvind.com"
-        }
-    ],
+    "license": "BSD",
+    "description": "Encode strings to Morse code, decode strings from Morse code.",
+    "author": {
+            "name" : "Calvin Nichols <calvin@calvindn.com> (http://calvindn.com)"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/calvindn/morse-node.git"
     },
     "keywords": [
         "morse",
-        "code"
+        "code",
+        "encode",
+        "decode"
     ],
-    "main": "./lib/morse-node.js",
+    "main": "./morse-node.js",
     "engines": {
         "node": ">=0.6.0"
     }

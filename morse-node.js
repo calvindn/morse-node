@@ -1,9 +1,3 @@
-// . = 1 unit
-// _ = 3 units
-// space between parts of the same letter is one unit.
-// space between letters is three units.
-// space between words is seven units.
-
 function MorseNode(){
     return this;
 };
@@ -134,53 +128,42 @@ var chars = {
 MorseNode.prototype = {
     version: "0.0.1",
 
-    encode: function(string) {
+    encode: function(str) {
         var encoding = "";
-        var lower = string.toLowerCase();
-        if (!this.isValid(string)) {
-            // return error
-        }
-        for (var i=0; i<lower.length; i++) {
-            encoding += ITU[lower.charAt(i)];
+
+        for (var i=0; i<str.length; i++) {
+            encoding += ITU[str.charAt(i).toLowerCase()];
             encoding += " ";
         }
         return encoding;
     },
 
-    decode: function(string) {
+    decode: function(str) {
         var decoding = "";
-        var array = string.split("/");
-        console.log(array);
-        // each word
-        for (var i=0; i<array.length; i++) {
+        var words = str.split("/");
 
+        // each word
+        for (var i=0; i<words.length; i++) {
             // each character
-            var array2 = array[i].split(" ");
-            for (var j=0; j<array2.length; j++) {
-                if (chars[array2[j]])
-                    decoding += chars[array2[j]];
+            var character = words[i].split(" ");
+            for (var j=0; j<character.length; j++) {
+                if (chars[character[j]])
+                    decoding += chars[character[j]];
             }
             decoding += " ";
         }
-
         return decoding;
     },
 
-    isValid: function(string, set) {
-        var lower = string.toLowerCase();
-        for (var i=0; i<lower.length; i++) {
-            if (!ITU.hasOwnProperty(lower.charAt(i))) {
-                console.log(lower.charAt(i));
-                return false;
-            }
-        }
-        return true;
+    isValid: function(str, type) { // type = chars, morse
+
     }
 
 };
 
 exports.create = function(version) {
     version = typeof version !== 'undefined' ? version : 'ITU';
-
+    if (version != "ITU") // currently no other morse code versions available
+        return null;
     return new MorseNode();
 };
