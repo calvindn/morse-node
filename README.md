@@ -53,7 +53,7 @@ console.log(morse.decode(msg));
 
 ### Output
 
- ```javascript
+ ```
 .--. .- -.-. -.- / -- -.-- / -... --- -..- / .-- .. - .... / ..-. .. ...- . / -.. --- --.. . -. / .-.. .. --.- ..- --- .-. / .--- ..- --. ... -.-.--
 pack my box with five dozen liquor jugs!
  ```
