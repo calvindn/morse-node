@@ -1,6 +1,6 @@
 {
     "name": "morse-node",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "license": "BSD",
     "description": "Encode strings to Morse code, decode strings from Morse code.",
     "author": {
