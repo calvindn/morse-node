@@ -35,17 +35,27 @@ var msg = morse.encode('The quick brown fox jumped over the lazy dog.');
  - Words are seperated by a forward slash " **/** ".
 
  ```javascript
-var msg = morse.decode("- .... . / --.- ..- .. -.-. -.- / -... .-. --- .-- -. / ..-. --- -..- / .--- ..- -- .--. . -.. / --- ...- . .-. / - .... . / .-.. .- --.. -.-- / -.. --- --. .-.-.- ");
+var msg = morse.decode("- .... ./--.- ..- .. -.-. -.-/-... .-. --- .-- -./..-. --- -..-/.--- ..- -- .--. . -../--- ...- . .-./- .... ./.-.. .- --.. -.--/-.. --- --. .-.-.-");
  ```
 
 Example
 -------
+
+### Example.js
+
  ```javascript
 var morse = require('./morse-node').create();
 
 var msg = morse.encode('Pack my box with five dozen liquor jugs!');
 console.log(msg);
 console.log(morse.decode(msg));
+ ```
+
+### Output
+
+ ```javascript
+.--. .- -.-. -.- / -- -.-- / -... --- -..- / .-- .. - .... / ..-. .. ...- . / -.. --- --.. . -. / .-.. .. --.- ..- --- .-. / .--- ..- --. ... -.-.--
+pack my box with five dozen liquor jugs!
  ```
 
 Author
