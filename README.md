@@ -7,8 +7,6 @@ Currently supports the [ITU standard](https://en.wikipedia.org/wiki/Morse_code#I
 Install
 -------
 
- - Not yet available.
-
 ```javascript
 npm install morse-node
 ```
@@ -41,10 +39,10 @@ var msg = morse.decode("- .... ./--.- ..- .. -.-. -.-/-... .-. --- .-- -./..-. -
 Example
 -------
 
-### Example.js
+### example.js
 
 ```javascript
-var morse = require('./morse-node').create();
+var morse = require('morse-node').create();
 
 var msg = morse.encode('Pack my box with five dozen liquor jugs!');
 console.log(msg);
