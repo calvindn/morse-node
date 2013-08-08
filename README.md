@@ -21,7 +21,7 @@ Getting Started
 
 ### Encoding
 
- - All alphanumeric characters are accepted, available punctuation includes everything inside the brackets [ **. , ? ' ! / ( ) & : ; = + - _ " $ @** ].
+ - All alphanumeric characters are accepted, available symbols includes everything inside the brackets [ **. , ? ' ! / ( ) & : ; = + - _ " $ @** ].
 
 ```javascript
 var msg = morse.encode('The quick brown fox jumped over the lazy dog.');
