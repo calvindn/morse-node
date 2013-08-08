@@ -1,6 +1,6 @@
 function MorseNode(){
     return this;
-};
+}
 
 var ITU = {
     // letters
@@ -121,7 +121,7 @@ var chars = {
     ".-..-." : "\"",
     "...-..-": "$",
     ".--.-." : "@",
-    " "      : "",
+    //" "      : "",
     "/"      : " "
 };
 
@@ -132,8 +132,11 @@ MorseNode.prototype = {
         var encoding = "";
 
         for (var i=0; i<str.length; i++) {
-            encoding += ITU[str.charAt(i).toLowerCase()];
-            encoding += " ";
+            var char = str.charAt(i).toLowerCase();
+            if (ITU[char]) {
+                encoding += ITU[char];
+                encoding += " ";
+            }
         }
         return encoding;
     },
@@ -156,14 +159,39 @@ MorseNode.prototype = {
     },
 
     isValid: function(str, type) { // type = chars, morse
+        if (!str)
+            return null;
 
+        if (type != "chars" && type != "morse")
+            return null;
+
+        if (type == "chars") {
+            for (var i=0; i<str.length; i++) {
+                if (!ITU[str.charAt(i).toLowerCase()])
+                    return false;
+            }
+            return true;
+        }
+        else if (type == "morse") {
+            var words = str.split("/");
+            // each word
+            for (var i=0; i<words.length; i++) {
+                // each character
+                var character = words[i].split(" ");
+                for (var j=0; j<character.length; j++) {
+                    if (!chars[character[j]] && character[j] != '') // ignore spaces
+                        return false;
+                }
+            }
+            return true;
+        }
     }
 
 };
 
 exports.create = function(version) {
     version = typeof version !== 'undefined' ? version : 'ITU';
-    if (version != "ITU") // currently no other morse code versions available
+    if (version != "ITU") // currently no other morse code versions supported
         return null;
     return new MorseNode();
 };

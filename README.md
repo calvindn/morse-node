@@ -36,6 +36,11 @@ var msg = morse.encode('The quick brown fox jumped over the lazy dog.');
 var msg = morse.decode("- .... ./--.- ..- .. -.-. -.-/-... .-. --- .-- -./..-. --- -..-/.--- ..- -- .--. . -../--- ...- . .-./- .... ./.-.. .- --.. -.--/-.. --- --. .-.-.-");
 ```
 
+### isValid
+
+ - Check validity of a string by using the isValid function.
+ - Encoding and decoding functions do not make this check and will attempt to translate your string regardless of undefined characters.
+
 Example
 -------
 
@@ -44,9 +49,16 @@ Example
 ```javascript
 var morse = require('morse-node').create();
 
-var msg = morse.encode('Pack my box with five dozen liquor jugs!');
-console.log(msg);
-console.log(morse.decode(msg));
+var encoded = morse.encode('Pack my box with five dozen liquor jugs!');
+console.log(encoded);
+
+var decoded = morse.decode(encoded);
+console.log(decoded);
+
+console.log(morse.isValid(encoded, "morse"));
+console.log(morse.isValid(encoded += "asdf", "morse"));
+console.log(morse.isValid(decoded, "chars"));
+console.log(morse.isValid(decoded += "~", "chars"));
 ```
 
 ### Output
@@ -54,6 +66,10 @@ console.log(morse.decode(msg));
 ```
 .--. .- -.-. -.- / -- -.-- / -... --- -..- / .-- .. - .... / ..-. .. ...- . / -.. --- --.. . -. / .-.. .. --.- ..- --- .-. / .--- ..- --. ... -.-.--
 pack my box with five dozen liquor jugs!
+true
+false
+true
+false
 ```
 
 Author
